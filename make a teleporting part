@@ -1,0 +1,11 @@
+local BeginPart = script.Parent
+local FinishPart = game.Workspace.FinishPart
+
+BeginPart.Touched:Connect(function(hit)
+	if hit.Parent:FindFirstChild("Humanoid") then
+		print("Found human")
+		local torso = hit.Parent:WaitForChild("Torso")
+		torso.CFrame = FinishPart.CFrame
+		print("teleporting..")
+	end
+end)
